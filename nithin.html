@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Welcome to my website!</h1>
+    <p>This is a simple HTML page.</p>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <button onclick="changeText()">Change Text</button>
+    <script>
+        function changeText() {
+            document.querySelector('p').textContent = 'This is a new paragraph!';
+        }
+
+        // Add a new list item
+        document.querySelector('ul').addEventListener('click', function(event) {
+            if (event.target.tagName === 'LI') {
+                var newItem = document.createElement('li');
+                newItem.textContent = 'New Item'+ (parseInt(event.target.textContent.split(' ')[1]) + 1);
+                this.appendChild(newItem);
+            }
+        });
+        // Remove a list item
+        document.querySelector('ul').addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+            if (event.target.tagName === 'LI') {
+                event.target.parentNode.removeChild(event.target);
+            }
+        });
+        // Change font size
+        document.querySelector('h1').addEventListener('dblclick', function() {
+            this.style.fontSize = (parseInt(window.getComputedStyle(this).fontSize) + 2) + 'px';
+        });
+        // Change background color
+        document.querySelector('body').addEventListener('mousedown', function() {
+            this.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        });
+        // Add a link to a new page
+        document.querySelector('body').addEventListener('wheel', function(event) {
+            if (event.deltaY < 0) {
+                window.open('https://example.com');
+            }
+        });
+        // Toggle visibility of a paragraph
+        document.querySelector('p').addEventListener('click', function() {
+            this.style.display = this.style.display === 'none'? 'block' : 'none';
+        });
+        // Prevent form submission
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Form submitted!');
+        });
+        // Change the background color of the page when the user hovers over a link
+
+            var links = document.querySelectorAll('a');
+            links.forEach(function(link) {
+                link.addEventListener('mouseover', function() {
+                    document.querySelector('body').style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+                });
+            });
+            
+    </script>
+</body>
+</html>
