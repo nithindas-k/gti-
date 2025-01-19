@@ -65,5 +65,29 @@
     <canvas id="myCanvas" width="200" height="100"></canvas>
     
     <img src="https://example.com/image.jpg" alt="Example Image">
+    
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        
+        ctx.beginPath();
+        ctx.rect(10, 10, 150, 100);
+        ctx.fillStyle = "green";
+        ctx.fill();
+        
+        ctx.beginPath();
+        ctx.arc(100, 50, 40, 0, Math.PI);
+        ctx.fillStyle = "blue";
+        ctx.fill();
+        
+        ctx.beginPath();
+        ctx.rect(160, 10, 150, 100);
+        ctx.fillStyle = "red";
+        ctx.fill();
+    </script>
+    
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        
+    </svg>
 </body>
 </html>
